@@ -569,6 +569,7 @@ public class Enhancer extends AbstractClassGenerator {
 				interceptDuringConstruction,
 				serialVersionUID);
 		this.currentKey = key;
+		//生成代理对象 在KEY_FACTORY.newInstance(...）->生成代理类的二进制字节码文件以及加载二进制字节码
 		Object result = super.create(key);
 		return result;
 	}
@@ -577,9 +578,11 @@ public class Enhancer extends AbstractClassGenerator {
 	protected Class generate(ClassLoaderData data) {
 		validate();
 		if (superclass != null) {
+			//设置生成类的名称
 			setNamePrefix(superclass.getName());
 		}
 		else if (interfaces != null) {
+			//设置生成类的名称
 			setNamePrefix(interfaces[ReflectUtils.findPackageProtected(interfaces)].getName());
 		}
 		return super.generate(data);

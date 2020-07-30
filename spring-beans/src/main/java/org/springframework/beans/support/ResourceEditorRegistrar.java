@@ -99,6 +99,7 @@ public class ResourceEditorRegistrar implements PropertyEditorRegistrar {
 	 */
 	@Override
 	public void registerCustomEditors(PropertyEditorRegistry registry) {
+		//注册一系列的常用类型的属性编辑器。
 		ResourceEditor baseEditor = new ResourceEditor(this.resourceLoader, this.propertyResolver);
 		doRegisterEditor(registry, Resource.class, baseEditor);
 		doRegisterEditor(registry, ContextResource.class, baseEditor);
@@ -111,6 +112,7 @@ public class ResourceEditorRegistrar implements PropertyEditorRegistrar {
 
 		ClassLoader classLoader = this.resourceLoader.getClassLoader();
 		doRegisterEditor(registry, URI.class, new URIEditor(classLoader));
+		//注册Class类对应的属性编辑器。那么，注册后，一旦某个实体bean中存在一些Class类型的属性，那么spring会调用ClassEditor将配置中定义的String类型转换为Class类型并进行赋值
 		doRegisterEditor(registry, Class.class, new ClassEditor(classLoader));
 		doRegisterEditor(registry, Class[].class, new ClassArrayEditor(classLoader));
 

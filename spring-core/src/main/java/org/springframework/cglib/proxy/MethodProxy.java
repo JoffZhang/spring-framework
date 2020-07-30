@@ -91,9 +91,9 @@ public class MethodProxy {
 
 		FastClass f2;
 
-		int i1;
+		int i1;	//方法g在f1中的索引
 
-		int i2;
+		int i2;	//方法CGLIB$g$0在f2中的索引
 	}
 
 
@@ -239,8 +239,9 @@ public class MethodProxy {
 	 */
 	public Object invokeSuper(Object obj, Object[] args) throws Throwable {
 		try {
-			init();
+			init();//初始化fastInfo
 			FastClassInfo fci = fastClassInfo;
+			//当调用invokeSuper方法时，实际上是调用代理类的CGLIB$g$0方法，CGLIB$g$0直接调用了目标类的g方法。
 			return fci.f2.invoke(fci.i2, obj, args);
 		}
 		catch (InvocationTargetException e) {

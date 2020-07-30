@@ -277,6 +277,11 @@ configure(allprojects) { project ->
 			cacheChangingModulesFor 0, "seconds"
 		}
 		repositories {
+			mavenLocal()
+			maven { url 'https://maven.aliyun.com/repository/public/' }
+			maven { url 'https://maven.aliyun.com/repository/spring/'}
+			maven { url 'https://maven.aliyun.com/repository/gradle-plugin'}
+			maven { url 'https://maven.aliyun.com/repository/apache-snapshots'}
 			mavenCentral()
 			maven { url "https://repo.spring.io/libs-spring-framework-build" }
 		}
