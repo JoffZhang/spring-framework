@@ -24,4 +24,12 @@ public class TestService {
 	public void print(){
 		System.out.println("TestService testDao = " + testDao);
 	}
+
+
+	@Override
+	public String toString() {
+		return "TestService{" +
+				"testDao=" + testDao +
+				'}';
+	}
 }

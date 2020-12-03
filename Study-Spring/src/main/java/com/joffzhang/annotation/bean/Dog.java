@@ -1,5 +1,8 @@
 package com.joffzhang.annotation.bean;
 
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -11,6 +14,7 @@ import javax.annotation.PreDestroy;
  */
 @Component
 public class Dog {
+
 
 	public Dog(){
 		System.out.println("  dog constructor");
@@ -25,4 +29,6 @@ public class Dog {
 	public void preDestroy(){
 		System.out.println("  dog @PreDestroy");
 	}
+
+
 }

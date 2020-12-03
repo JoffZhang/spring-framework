@@ -1,5 +1,7 @@
 package com.joffzhang.annotation.config;
 
+import com.joffzhang.annotation.bean.Car;
+import com.joffzhang.annotation.bean.Color;
 import com.joffzhang.annotation.dao.TestDao;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -47,6 +49,7 @@ import org.springframework.context.annotation.Primary;
 		"com.joffzhang.annotation.service",
 		"com.joffzhang.annotation.dao",
 		"com.joffzhang.annotation.controller",
+		"com.joffzhang.annotation.bean"
 })
 public class MainConfigOfAutowired {
 	@Primary
@@ -55,5 +58,16 @@ public class MainConfigOfAutowired {
 		TestDao testDao = new TestDao();
 		testDao.setLabel("2");
 		return testDao;
+	}
+
+	/**
+	 * @Bean标注的方法创建对象时，方法参数的值从容器中获取
+	 * @param car
+	 * @return
+	 */
+	@Bean
+	public Color color(Car car){
+		System.out.println("@Bean + 参数 "+car);
+		return new Color();
 	}
 }

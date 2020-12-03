@@ -1,5 +1,7 @@
 package com.joffzhang.annotation.test;
 
+import com.joffzhang.annotation.bean.Boss;
+import com.joffzhang.annotation.bean.Car;
 import com.joffzhang.annotation.config.MainConfigOfAutowired;
 import com.joffzhang.annotation.config.MainConfigOfPropertyValues;
 import com.joffzhang.annotation.dao.TestDao;
@@ -21,9 +23,15 @@ public class IOCTests_Autowired extends BaseTest {
 		printBeans(annotationConfigApplicationContext);
 
 		TestService testService = annotationConfigApplicationContext.getBean(TestService.class);
-		testService.print();
+		System.out.println(testService);
 		//TestDao testDao = annotationConfigApplicationContext.getBean(TestDao.class);
+		//System.out.println(testDao);
 
+		Boss boss = annotationConfigApplicationContext.getBean(Boss.class);
+		System.out.println(boss);
+
+		Car car = annotationConfigApplicationContext.getBean(Car.class);
+		System.out.println(car);
 		annotationConfigApplicationContext.close();
 	}
 
