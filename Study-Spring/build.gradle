@@ -8,6 +8,7 @@ version '5.2.7.BUILD-SNAPSHOT'
 dependencies {
     compile(project(":spring-context"))
     compile(project(":spring-aspects"))
+    compile(project(":spring-jdbc"))
     compile("org.aspectj:aspectjweaver")
     compile("javax.inject:javax.inject")
     compile("com.mchange:c3p0:0.9.5.4")

@@ -7,9 +7,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 /**
  * 注解使用
- * @author zy
- * @date 2020/11/30 10:41
- *
  * 扫描包
  * @ComponentScan
  * @ComponentScans
@@ -333,8 +330,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  *  *		版本不同执行顺序存在差异  spring5
  *  *				正常执行： 环绕通知=》前置通知=》目标方法=》后置通知=》返回通知
  *  *				异常执行： 环绕通知=》前置通知=》目标方法=》后置通知=》异常通知
- *
- *
  */
 public class MainAnnotation {
 	public static void main(String[] args) {

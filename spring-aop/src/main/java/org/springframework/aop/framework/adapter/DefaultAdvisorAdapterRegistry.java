@@ -87,6 +87,7 @@ public class DefaultAdvisorAdapterRegistry implements AdvisorAdapterRegistry, Se
 		}
 		for (AdvisorAdapter adapter : this.adapters) {
 			if (adapter.supportsAdvice(advice)) {
+				//使用相关的适配器进行转换
 				interceptors.add(adapter.getInterceptor(advisor));
 			}
 		}
