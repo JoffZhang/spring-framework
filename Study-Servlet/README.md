@@ -35,3 +35,6 @@
         
         
 >    idea tomcat控制台中文乱码: -Dfile.encoding=UTF-8
+
+#   异步处理
+![异步处理](./src/com/joffzhang/servlet/异步处理.JPG)
