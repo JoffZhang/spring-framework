@@ -1,7 +1,5 @@
-package com.joffzhang.annotation.test;
+package com.joffzhang.test.annotation;
 
-import com.joffzhang.annotation.aop.MathCalculator;
-import com.joffzhang.annotation.config.MainConfigOfAOP;
 import com.joffzhang.tx.LogService;
 import com.joffzhang.tx.MainConfigOfTX;
 import org.junit.jupiter.api.Test;

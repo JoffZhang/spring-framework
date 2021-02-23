@@ -609,26 +609,26 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 		}
 
 		// Initialize any placeholder property sources in the context environment.
-		//用实际实例子类替换任何存根属性源。
+		//在上下文环境中初始化任何占位符属性源 ，用实际实例子类替换任何存根属性源。
 		initPropertySources();
 
-		// Validate that all properties marked as required are resolvable:
+		//验证标记为必需的所有属性都是可解析的 Validate that all properties marked as required are resolvable:
 		// see ConfigurablePropertyResolver#setRequiredProperties
 		//验证需要的属性文件是否都已经放入环境中
 		getEnvironment().validateRequiredProperties();
 
-		// Store pre-refresh ApplicationListeners...
+		//设置预刷新的ApplicationListeners Store pre-refresh ApplicationListeners...
 		if (this.earlyApplicationListeners == null) {
 			this.earlyApplicationListeners = new LinkedHashSet<>(this.applicationListeners);
 		}
 		else {
-			// Reset local application listeners to pre-refresh state.
+			//将本地应用程序侦听器重置为预刷新状态 Reset local application listeners to pre-refresh state.
 			this.applicationListeners.clear();
 			this.applicationListeners.addAll(this.earlyApplicationListeners);
 		}
 
-		// Allow for the collection of early ApplicationEvents,
-		// to be published once the multicaster is available...
+		//允许收集早期的ApplicationEvent， Allow for the collection of early ApplicationEvents,
+		//一旦多播器可用时就发布... to be published once the multicaster is available...
 		this.earlyApplicationEvents = new LinkedHashSet<>();
 	}
 
@@ -815,6 +815,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	 */
 	protected void initLifecycleProcessor() {
 		ConfigurableListableBeanFactory beanFactory = getBeanFactory();
+		//如果BeanFactory中有自定义的LifecycleProcessor的bean,则直接用自定义的
 		if (beanFactory.containsLocalBean(LIFECYCLE_PROCESSOR_BEAN_NAME)) {
 			this.lifecycleProcessor =
 					beanFactory.getBean(LIFECYCLE_PROCESSOR_BEAN_NAME, LifecycleProcessor.class);
@@ -823,6 +824,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 			}
 		}
 		else {
+			//如果没有自定义，则创建默认的实现类DefaultLifecycleProcesor
 			DefaultLifecycleProcessor defaultProcessor = new DefaultLifecycleProcessor();
 			defaultProcessor.setBeanFactory(beanFactory);
 			this.lifecycleProcessor = defaultProcessor;
@@ -1028,6 +1030,8 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	 * @see #destroyBeans()
 	 * @see #close()
 	 * @see #registerShutdownHook()
+	 * 实际执行上下文关闭：发布ContextClosedEvent并*破坏此应用程序上下文的bean工厂中的单例。
+	 * 由{@code close（）}和JVM关闭钩子（如果有）调用
 	 */
 	protected void doClose() {
 		// Check whether an actual close attempt is necessary...

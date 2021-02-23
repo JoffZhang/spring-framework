@@ -1,4 +1,4 @@
-package com.joffzhang.annotation.test;
+package com.joffzhang.test.annotation;
 
 import com.joffzhang.annotation.bean.Car;
 import com.joffzhang.annotation.config.MainConfigOfLifeCycle;

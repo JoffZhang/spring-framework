@@ -1,6 +1,5 @@
-package com.joffzhang.annotation.test;
+package com.joffzhang.test.annotation;
 
-import com.joffzhang.annotation.config.MainConfigOfLifeCycle;
 import com.joffzhang.annotation.config.MainConfigOfPropertyValues;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

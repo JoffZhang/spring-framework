@@ -14,4 +14,8 @@ dependencies {
     compile("com.mchange:c3p0:0.9.5.4")
     compile("mysql:mysql-connector-java:8.0.22")
     testCompile group: 'junit', name: 'junit'
+    //为了在src/main下执行 main方法也可以打印spring的日志，所以引入如下。默认testCompile是test下，testRuntime时才生效
+    compile("org.apache.logging.log4j:log4j-core")
+    compile("org.apache.logging.log4j:log4j-slf4j-impl")
+    compile("org.apache.logging.log4j:log4j-jul")
 }

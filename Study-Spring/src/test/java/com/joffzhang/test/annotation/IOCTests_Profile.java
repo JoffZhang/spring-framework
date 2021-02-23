@@ -1,10 +1,6 @@
-package com.joffzhang.annotation.test;
+package com.joffzhang.test.annotation;
 
-import com.joffzhang.annotation.bean.Boss;
-import com.joffzhang.annotation.bean.Car;
-import com.joffzhang.annotation.config.MainConfigOfAutowired;
 import com.joffzhang.annotation.config.MainConfigOfProfile;
-import com.joffzhang.annotation.service.TestService;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

@@ -145,7 +145,7 @@ final class PostProcessorRegistrationDelegate {
 
 		else {
 			// Invoke factory processors registered with the context instance.
-			//调用上下文中注册的
+			//调用在上下文实例中注册的工厂处理器
 			invokeBeanFactoryPostProcessors(beanFactoryPostProcessors, beanFactory);
 		}
 

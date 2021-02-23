@@ -1,4 +1,4 @@
-package com.joffzhang.annotation.test;
+package com.joffzhang.test.annotation;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

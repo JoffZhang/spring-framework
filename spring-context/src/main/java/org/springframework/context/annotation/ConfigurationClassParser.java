@@ -243,7 +243,7 @@ class ConfigurationClassParser {
 			}
 		}
 
-		// Recursively process the configuration class and its superclass hierarchy.
+		//递归处理配置类及其超类层次结构 Recursively process the configuration class and its superclass hierarchy.
 		SourceClass sourceClass = asSourceClass(configClass, filter);
 		do {
 			sourceClass = doProcessConfigurationClass(configClass, sourceClass, filter);

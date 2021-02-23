@@ -35,9 +35,9 @@ public class MyTypeFilter implements TypeFilter {
 
 		String className = classMetadata.getClassName();
 		System.out.println(" metadataReader.getClassMetadata()getClassName()---->" + className);
-		if(className.contains("er")){
-			return true;
+		if(className.contains("MainConfig") && !className.endsWith("MainConfig")){//去掉其他MainConfig配置 避免影响
+			return false;
 		}
-		return false;
+		return true;
 	}
 }

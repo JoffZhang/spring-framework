@@ -59,6 +59,7 @@ import org.springframework.beans.BeansException;
  * @see BeanPostProcessor
  * @see PropertyResourceConfigurer
  */
+//函数式接口，只能有一个抽象的方法
 @FunctionalInterface
 public interface BeanFactoryPostProcessor {
 
@@ -67,6 +68,7 @@ public interface BeanFactoryPostProcessor {
 	 * initialization. All bean definitions will have been loaded, but no beans
 	 * will have been instantiated yet. This allows for overriding or adding
 	 * properties even to eager-initializing beans.
+	 * 可以修改应用程序上下文的内部bean工厂。所有的bean定义都将被加载，但是还没有bean被实例化，允许重写或添加属性
 	 * @param beanFactory the bean factory used by the application context
 	 * @throws org.springframework.beans.BeansException in case of errors
 	 */
